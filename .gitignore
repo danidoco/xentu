@@ -1,4 +1,5 @@
 .vscode/
+lib/
 CMakeFiles/
 Makefile
 cmake_install.cmake
