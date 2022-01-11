@@ -9,7 +9,7 @@ project(
 
 # Build options
 if(NOT DEFINED BUILD_MODE)
-   set(BUILD_MODE DEBUG)
+   set(BUILD_MODE RELEASE)
 endif()
 
 if(NOT DEFINED BIN_TYPE)
@@ -40,8 +40,23 @@ set(EXTERNAL_INCLUDE_DIRS
 
 ####################################################################
 
+# Validate build mode
+if(NOT ((${BUILD_MODE} STREQUAL RELEASE) OR (${BUILD_MODE} STREQUAL DEBUG)))
+   message(WARNING "Given build mode '${BUILD_MODE}' is not valid. Continue with default value: RELEASE")
+   set(BUILD_MODE RELEASE)
+endif()
+
 # Print build mode
 message(STATUS "Build mode: ${BUILD_MODE}")
+
+# Validate binary type
+if(NOT ((${BIN_TYPE} STREQUAL STATIC) OR (${BIN_TYPE} STREQUAL SHARED)))
+   message(WARNING "Given binary type '${BIN_TYPE}' is not valid. Continue with default value: STATIC")
+   set(BIN_TYPE STATIC)
+endif()
+
+# Print binary type
+message(STATUS "Binary type: ${BIN_TYPE}")
 
 # Fetch source file paths
 file(GLOB_RECURSE SOURCE_FILES ${SOURCE_DIR}/*.cpp)
@@ -53,12 +68,13 @@ add_library(xentu ${BIN_TYPE} ${SOURCE_FILES})
 set_target_properties(xentu PROPERTIES
    ARCHIVE_OUTPUT_DIRECTORY ${BUILD_DIR}/out
    LIBRARY_OUTPUT_DIRECTORY ${BUILD_DIR}/out
+   RUNTIME_OUTPUT_DIRECTORY ${BUILD_DIR}/out
 )
 
-# C++ standard
+# Set C++ standard
 set_target_properties(xentu PROPERTIES CXX_STANDARD 17)
 
-# C++ compiler flags
+# Set C++ compiler flags
 if(${BUILD_MODE} STREQUAL RELEASE)
    set(CMAKE_CXX_FLAGS "-w -O2 -DXN_RELEASE_BUILD")
 elseif(${BUILD_MODE} STREQUAL DEBUG)
@@ -78,8 +94,7 @@ foreach(LIB ${EXTERNAL_STATIC_LIBS})
    elseif(EXISTS ${LIB})
       message(STATUS "External library '${LIB}' found")
    endif()
-endforeach(LIB EXTERNAL_STATIC_LIBS)
+endforeach()
 
 # Link external static libraries
 target_link_libraries(xentu ${EXTERNAL_STATIC_LIBS})
-
