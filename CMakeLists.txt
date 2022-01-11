@@ -66,7 +66,10 @@ elseif(${BUILD_MODE} STREQUAL DEBUG)
 endif()
 
 # Set include paths
-target_include_directories(xentu PRIVATE ${EXTERNAL_INCLUDE_DIRS})
+target_include_directories(xentu PRIVATE
+   ${HEADER_DIR}
+   ${EXTERNAL_INCLUDE_DIRS}
+)
 
 # Check existance of external libraries
 foreach(LIB ${EXTERNAL_STATIC_LIBS})
