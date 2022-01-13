@@ -98,3 +98,6 @@ endforeach()
 
 # Link external static libraries
 target_link_libraries(xentu ${EXTERNAL_STATIC_LIBS})
+
+# Build sandbox app
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/sandbox)
