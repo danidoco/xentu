@@ -4,19 +4,16 @@ namespace Xentu
 {
    Application::Application()
    {
+      this->running = true;
    }
 
    Application::~Application()
    {
    }
 
-   void Application::mainloop()
-   {
-   }
-
    void Application::run()
    {
-      while (true)
+      while (running)
       {
          mainloop();
       }

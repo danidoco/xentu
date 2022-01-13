@@ -5,6 +5,9 @@ namespace Xentu
 {
    class Application
    {
+   private:
+      bool running;
+      
    public:
       Application();
       virtual ~Application();
