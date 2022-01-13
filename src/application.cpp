@@ -10,6 +10,10 @@ namespace Xentu
    {
    }
 
+   void Application::mainloop()
+   {
+   }
+
    void Application::run()
    {
       while (true)

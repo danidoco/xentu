@@ -8,9 +8,11 @@ namespace Xentu
    public:
       Application();
       virtual ~Application();
-      virtual void mainloop() = 0;
+      virtual void mainloop();
       virtual void run() final;
    };
+
+   Application* get_application();
 } // namespace Xentu
 
 #endif

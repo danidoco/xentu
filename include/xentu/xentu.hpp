@@ -2,6 +2,6 @@
 #define XN_XENTU_H
 
 #include "xentu/application.hpp"
-#include "xentu/window_properties.hpp"
+#include "xentu/entrypoint.hpp"
 
 #endif
