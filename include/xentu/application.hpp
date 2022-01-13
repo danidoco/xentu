@@ -8,7 +8,7 @@ namespace Xentu
    public:
       Application();
       virtual ~Application();
-      virtual void mainloop();
+      virtual void mainloop() = 0;
       virtual void run() final;
    };
 
