@@ -101,3 +101,8 @@ target_link_libraries(xentu ${EXTERNAL_STATIC_LIBS})
 
 # Build sandbox app
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/sandbox)
+
+# Custom target
+add_custom_target(run_sandbox
+   ${CMAKE_CURRENT_SOURCE_DIR}/build/sandbox/sandbox.exe
+)
