@@ -1,7 +1,7 @@
 #ifndef XN_ENTRYPOINT_H
 #define XN_ENTRYPOINT_H
 
-#include "xentu/application.hpp"
+#include "xentu/core/application.hpp"
 
 extern Xentu::Application *Xentu::get_application();
 

@@ -1,4 +1,4 @@
-#include "xentu/application.hpp"
+#include "xentu/core/application.hpp"
 
 namespace Xentu
 {
