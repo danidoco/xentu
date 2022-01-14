@@ -18,4 +18,9 @@ namespace Xentu
          mainloop();
       }
    }
+
+   void Application::terminate()
+   {
+      running = false;
+   }
 } // namespace Xentu

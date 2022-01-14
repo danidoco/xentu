@@ -13,6 +13,7 @@ namespace Xentu
       virtual ~Application();
       virtual void mainloop() = 0;
       virtual void run() final;
+      virtual void terminate() final;
    };
 
    Application* get_application();
