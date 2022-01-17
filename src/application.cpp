@@ -1,6 +1,6 @@
 #include "xentu/core/application.hpp"
 
-namespace Xentu
+namespace xentu
 {
    Application::Application()
    {
@@ -11,16 +11,16 @@ namespace Xentu
    {
    }
 
-   void Application::run()
+   void Application::Run()
    {
-      while (running)
+      while (this->running)
       {
-         mainloop();
+         this->Mainloop();
       }
    }
 
-   void Application::terminate()
+   void Application::Terminate()
    {
-      running = false;
+      this->running = false;
    }
-} // namespace Xentu
+} // namespace xentu

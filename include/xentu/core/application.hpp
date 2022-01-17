@@ -1,7 +1,7 @@
 #ifndef XN_APPLICATION_H
 #define XN_APPLICATION_H
 
-namespace Xentu
+namespace xentu
 {
    class Application
    {
@@ -11,12 +11,12 @@ namespace Xentu
    public:
       Application();
       virtual ~Application();
-      virtual void mainloop() = 0;
-      virtual void run() final;
-      virtual void terminate() final;
+      virtual void Mainloop() = 0;
+      virtual void Run() final;
+      virtual void Terminate() final;
    };
 
-   Application* get_application();
-} // namespace Xentu
+   Application* CreateApplication();
+} // namespace xentu
 
 #endif

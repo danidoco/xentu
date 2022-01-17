@@ -3,15 +3,14 @@
 
 #include "xentu/core/application.hpp"
 
-extern Xentu::Application *Xentu::get_application();
+extern xentu::Application *xentu::CreateApplication();
 
 int main(int argc, char const *argv[])
 {
-   auto app = Xentu::get_application();
-   app->run();
+   auto app = xentu::CreateApplication();
+   app->Run();
    delete app;
    return 0;
 }
-
 
 #endif
