@@ -7,7 +7,7 @@ namespace xentu
    {
    private:
       bool running;
-      
+
    public:
       Application();
       virtual ~Application();
@@ -16,7 +16,7 @@ namespace xentu
       virtual void Terminate() final;
    };
 
-   Application* CreateApplication();
+   Application *CreateApplication();
 } // namespace xentu
 
 #endif

@@ -7,9 +7,7 @@ namespace xentu
       this->running = true;
    }
 
-   Application::~Application()
-   {
-   }
+   Application::~Application() {}
 
    void Application::Run()
    {

@@ -1,24 +1,17 @@
-#include <iostream>
 #include "xentu/xentu.hpp"
+#include <iostream>
 
-class Sandbox : public Xentu::Application
+class Sandbox : public xentu::Application
 {
 public:
-   Sandbox()
-   {
-   }
+   Sandbox() {}
 
-   void mainloop() override
-   {
+   void Mainloop() {}
 
-   }
-
-   ~Sandbox()
-   {
-   }
+   ~Sandbox() {}
 };
 
-Xentu::Application *Xentu::get_application()
+xentu::Application *xentu::CreateApplication()
 {
    return new Sandbox();
 }
