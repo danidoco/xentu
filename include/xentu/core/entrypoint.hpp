@@ -1,5 +1,4 @@
-#ifndef XN_ENTRYPOINT_H
-#define XN_ENTRYPOINT_H
+#pragma once
 
 #include "xentu/core/application.hpp"
 
@@ -12,5 +11,3 @@ int main(int argc, char const *argv[])
    delete app;
    return 0;
 }
-
-#endif

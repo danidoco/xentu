@@ -1,5 +1,4 @@
-#ifndef XN_APPLICATION_H
-#define XN_APPLICATION_H
+#pragma once
 
 namespace xentu
 {
@@ -18,5 +17,3 @@ namespace xentu
 
    Application *CreateApplication();
 } // namespace xentu
-
-#endif
