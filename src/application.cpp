@@ -1,10 +1,12 @@
 #include "xentu/core/application.hpp"
+#include "xentu/debug/logger.hpp"
 
 namespace xentu
 {
    Application::Application()
+      : running(true)
    {
-      this->running = true;
+      xentu::Logger::Init();
    }
 
    Application::~Application() {}
