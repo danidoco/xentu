@@ -20,8 +20,5 @@ namespace xentu
       }
    }
 
-   void Application::Terminate()
-   {
-      this->running = false;
-   }
+   void Application::Terminate() { this->running = false; }
 } // namespace xentu
