@@ -3,10 +3,11 @@
 
 namespace xentu
 {
-   Application::Application()
+   Application::Application(const char *name)
       : running(true)
+      , name(name)
    {
-      xentu::Logger::Init();
+      xentu::Logger::Init(name);
    }
 
    Application::~Application() {}

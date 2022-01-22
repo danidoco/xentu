@@ -6,8 +6,9 @@ class Sandbox : public xentu::Application
 {
 public:
    Sandbox()
+      : Application("Sandbox")
    {
-      XN_INFO("Application running!");
+      XN_INFO("{} running!", GetApplicationName());
    }
 
    void Mainloop() {}

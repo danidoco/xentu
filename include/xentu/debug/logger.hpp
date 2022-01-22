@@ -12,7 +12,7 @@ namespace xentu
       static std::shared_ptr<spdlog::logger> applicationLogger;
 
    public:
-      static void Init();
+      static void Init(const char *name);
 
       inline static std::shared_ptr<spdlog::logger> &GetEngineLogger()
       {
