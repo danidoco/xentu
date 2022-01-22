@@ -9,6 +9,9 @@ public:
       : Application("Sandbox")
    {
       XN_INFO("{} running!", GetApplicationName());
+      XN_WARN("Warning from {}", GetApplicationName());
+      XN_ERROR("Error from {}", GetApplicationName());
+      XN_CRITICAL("Critical error from {}", GetApplicationName());
    }
 
    void Mainloop() {}
