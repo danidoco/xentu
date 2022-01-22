@@ -1,26 +1,27 @@
 #include "xentu/core/application.hpp"
+#include "xentu/debug/logger.hpp"
 
-namespace Xentu
+namespace xentu
 {
-   Application::Application()
+   Application::Application(const char *name)
+      : running(true)
+      , name(name)
    {
-      this->running = true;
+      xentu::Logger::Init(name);
    }
 
-   Application::~Application()
-   {
-   }
+   Application::~Application() {}
 
-   void Application::run()
+   void Application::Run()
    {
-      while (running)
+      while (this->running)
       {
-         mainloop();
+         this->Mainloop();
       }
    }
 
-   void Application::terminate()
+   void Application::Terminate()
    {
-      running = false;
+      this->running = false;
    }
-} // namespace Xentu
+} // namespace xentu

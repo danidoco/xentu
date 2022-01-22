@@ -1,22 +1,26 @@
-#ifndef XN_APPLICATION_H
-#define XN_APPLICATION_H
+#pragma once
 
-namespace Xentu
+namespace xentu
 {
    class Application
    {
    private:
       bool running;
-      
+      const char *name;
+
    public:
-      Application();
+      Application(const char *name);
       virtual ~Application();
-      virtual void mainloop() = 0;
-      virtual void run() final;
-      virtual void terminate() final;
+
+      inline virtual const char *GetApplicationName() const
+      {
+         return name;
+      }
+
+      virtual void Mainloop() = 0;
+      virtual void Run() final;
+      virtual void Terminate() final;
    };
 
-   Application* get_application();
-} // namespace Xentu
-
-#endif
+   Application *CreateApplication();
+} // namespace xentu
