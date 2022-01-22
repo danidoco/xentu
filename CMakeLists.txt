@@ -58,8 +58,17 @@ endif()
 # Print binary type
 message(STATUS "Binary type: ${BIN_TYPE}")
 
+# Fetch header file paths
+file(GLOB_RECURSE HEADER_FILES ${HEADER_DIR}/*.hpp)
+
 # Fetch source file paths
 file(GLOB_RECURSE SOURCE_FILES ${SOURCE_DIR}/*.cpp)
+
+# clang format
+add_custom_target(clang-format
+   ALL
+   COMMAND clang-format -i ${SOURCE_FILES} ${HEADER_FILES}
+)
 
 # Add main target
 add_library(xentu ${BIN_TYPE} ${SOURCE_FILES})
@@ -104,5 +113,5 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/sandbox)
 
 # Custom target
 add_custom_target(run_sandbox
-   ${CMAKE_CURRENT_SOURCE_DIR}/build/sandbox/sandbox.exe
+   ${CMAKE_CURRENT_SOURCE_DIR}/build/sandbox/sandbox
 )

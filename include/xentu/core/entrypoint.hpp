@@ -1,17 +1,16 @@
-#ifndef XN_ENTRYPOINT_H
-#define XN_ENTRYPOINT_H
+#pragma once
 
 #include "xentu/core/application.hpp"
+#include "xentu/debug/logger.hpp"
 
-extern Xentu::Application *Xentu::get_application();
+extern xentu::Application *xentu::CreateApplication();
 
 int main(int argc, char const *argv[])
 {
-   auto app = Xentu::get_application();
-   app->run();
+   auto app = xentu::CreateApplication();
+   app->Run();
+
    delete app;
+
    return 0;
 }
-
-
-#endif
