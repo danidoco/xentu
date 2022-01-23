@@ -19,4 +19,6 @@ namespace xentu
 
       void Draw();
    };
+   
+   Window *CreateWindow();
 } // namespace xentu
