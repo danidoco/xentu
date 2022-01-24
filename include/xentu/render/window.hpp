@@ -11,6 +11,7 @@ namespace xentu
 
    public:
       Window(int width, int height, const char *caption, bool fullscreen);
+      ~Window();
 
       inline int GetWidth() { return width; }
       inline int GetHeight() { return height; }
@@ -19,6 +20,6 @@ namespace xentu
 
       void Draw();
    };
-   
+
    Window *CreateWindow();
 } // namespace xentu
