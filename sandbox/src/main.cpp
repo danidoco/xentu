@@ -1,22 +1,29 @@
 #include "xentu/xentu.hpp"
-#include "spdlog/spdlog.h"
-#include "spdlog/sinks/stdout_color_sinks-inl.h"
 
 class Sandbox : public xentu::Application
 {
+private:
+   xentu::Window *window;
+
 public:
    Sandbox()
       : Application("Sandbox")
    {
       XN_INFO("{} running!", GetApplicationName());
       XN_WARN("Warning from {}", GetApplicationName());
-      XN_ERROR("Error from {}", GetApplicationName());
-      XN_CRITICAL("Critical error from {}", GetApplicationName());
+
+      window = xentu::CreateWindow(this, 800, 800, "Sandbox", false);
+   }  
+
+   void Mainloop() 
+   {
+      window->Draw();
    }
 
-   void Mainloop() {}
-
-   ~Sandbox() {}
+   ~Sandbox() 
+   {
+      delete window;
+   }
 };
 
 xentu::Application *xentu::CreateApplication()
