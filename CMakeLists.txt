@@ -87,7 +87,7 @@ set_target_properties(xentu PROPERTIES CXX_STANDARD 17)
 if(${BUILD_MODE} STREQUAL RELEASE)
    set(CMAKE_CXX_FLAGS "-w -O2 -DXN_RELEASE_BUILD")
 elseif(${BUILD_MODE} STREQUAL DEBUG)
-   set(CMAKE_CXX_FLAGS "-O0 -DXN_DEBUG_BUILD")
+   set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -ggdb -O0 -DXN_DEBUG_BUILD")
 endif()
 
 # Set include paths

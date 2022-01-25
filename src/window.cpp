@@ -40,6 +40,7 @@ namespace xentu
 
       glfwSetFramebufferSizeCallback(
          window, [](GLFWwindow *window, int width, int height) -> void {
+            (void)window;
             glViewport(0, 0, width, height);
          });
    }
@@ -69,5 +70,4 @@ namespace xentu
    {
       return new Window(application, width, height, caption, fullscreen);
    }
-
 } // namespace xentu
