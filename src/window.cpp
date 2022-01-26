@@ -10,7 +10,7 @@ namespace xentu
       , caption(caption)
       , fullscreen(fullscreen)
    {
-      if(!glfwInit())
+      if (!glfwInit())
       {
          XN_ENGINE_CRITICAL("Failed to initialize GLFW")
       }
