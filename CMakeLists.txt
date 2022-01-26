@@ -85,9 +85,9 @@ set_target_properties(xentu PROPERTIES CXX_STANDARD 17)
 
 # Set C++ compiler flags
 if(${BUILD_MODE} STREQUAL RELEASE)
-   set(CMAKE_CXX_FLAGS "-w -O2")
+   set(CMAKE_CXX_FLAGS "-DXN_RELEASE -w -O2")
 elseif(${BUILD_MODE} STREQUAL DEBUG)
-   set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -ggdb -O0")
+   set(CMAKE_CXX_FLAGS "-DXN_DEBUG -Wall -Wextra -pedantic -ggdb -O0")
 endif()
 
 # Set include paths

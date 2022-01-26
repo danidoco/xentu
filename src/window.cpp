@@ -12,7 +12,7 @@ namespace xentu
    {
       if (!glfwInit())
       {
-         XN_ENGINE_CRITICAL("Failed to initialize GLFW")
+         XN_ENGINE_CRITICAL("Failed to initialize GLFW");
       }
 
       glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
