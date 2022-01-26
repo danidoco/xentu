@@ -26,10 +26,6 @@ namespace xentu
    };
 } // namespace xentu
 
-#if !defined(XN_DEBUG) && !defined(XN_RELEASE)
-   #define XN_DEBUG
-#endif
-
 #if defined(XN_DEBUG)
    #define XN_ENGINE_TRACE(...)                                                \
       ::xentu::Logger::GetEngineLogger()->trace(__VA_ARGS__)
