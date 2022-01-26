@@ -26,7 +26,7 @@ namespace xentu
    };
 } // namespace xentu
 
-#ifdef XN_DEBUG_BUILD
+#if defined(XN_DEBUG)
    #define XN_ENGINE_TRACE(...)                                                \
       ::xentu::Logger::GetEngineLogger()->trace(__VA_ARGS__)
    #define XN_ENGINE_INFO(...)                                                 \
@@ -48,7 +48,7 @@ namespace xentu
       ::xentu::Logger::GetApplicationLogger()->error(__VA_ARGS__)
    #define XN_CRITICAL(...)                                                    \
       ::xentu::Logger::GetApplicationLogger()->critical(__VA_ARGS__)
-#elif XN_RELEASE_BUILD
+#elif defined(XN_RELEASE)
    #define XN_ENGINE_TRACE(...)
    #define XN_ENGINE_INFO(...)
    #define XN_ENGINE_WARN(...)

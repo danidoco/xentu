@@ -5,7 +5,7 @@
 
 extern xentu::Application *xentu::CreateApplication();
 
-int main(int argc, char const *argv[])
+int main()
 {
    auto app = xentu::CreateApplication();
    app->Run();
