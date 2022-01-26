@@ -10,7 +10,10 @@ namespace xentu
       , caption(caption)
       , fullscreen(fullscreen)
    {
-      glfwInit();
+      if(!glfwInit())
+      {
+         XN_ENGINE_CRITICAL("Failed to initialize GLFW")
+      }
 
       glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
       glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -25,7 +28,7 @@ namespace xentu
 
       if (window == nullptr)
       {
-         XN_ENGINE_CRITICAL("Failed to create window");
+         XN_ENGINE_CRITICAL("Failed to create GLFW window");
          glfwTerminate();
       }
 
