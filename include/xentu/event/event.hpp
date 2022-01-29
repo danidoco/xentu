@@ -6,7 +6,6 @@
 
 namespace xentu
 {
-   template<typename A>
    class Event
    {
    private:
