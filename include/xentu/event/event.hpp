@@ -6,6 +6,7 @@
 
 namespace xentu
 {
+   template<typename A>
    class Event
    {
    private:
@@ -14,7 +15,7 @@ namespace xentu
       std::vector<EventListener> listeners;
 
    public:
-      Event(EventCategory category, EventType type);
+      Event(const EventCategory &category, const EventType &type);
       void AddListener(const EventListener &listener);
       void Dispatch();
    };
