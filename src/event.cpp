@@ -5,7 +5,7 @@
 
 namespace xentu
 {
-   Event::Event()
+   Event::Event(EventCategory category, EventType type)
       : category(category)
       , type(type)
    {}
@@ -17,11 +17,10 @@ namespace xentu
 
    void Event::Dispatch()
    {
-      for (auto &listener : listeners)
+      for (auto &&listener : listeners)
       {
-         std::function<void()> callback = listener->GetDispatchCallback();
+         std::function<void()> callback = listener.GetDispatchCallback();
          callback();
       }
    }
-
 } // namespace xentu
