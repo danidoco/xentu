@@ -1,22 +1,21 @@
 #pragma once
 
-#include <queue>
+#include <vector>
 #include "xentu/event/event_listener.hpp"
 #include "xentu/event/event_type.hpp"
 
 namespace xentu
-{  
+{
    class Event
    {
    private:
       EventCategory category;
       EventType type;
-      std::queue<EventListener> listenerQueue;
-   
+      std::vector<EventListener> listeners;
+
    public:
+      Event(EventCategory category, EventType type);
       void AddListener(const EventListener &listener);
-      void ClearListenerQueue();
       void Dispatch();
    };
 } // namespace xentu
-
