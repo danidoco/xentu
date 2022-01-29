@@ -9,7 +9,7 @@ namespace xentu
    class Event
    {
    private:
-      static EventType eventType;
+      EventType eventType;
       std::queue<EventListener> listenerQueue;
    
    public:
