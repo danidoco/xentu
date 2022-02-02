@@ -16,6 +16,8 @@ public:
       XN_CRITICAL("CRITICAL!!!");
 
       window = xentu::CreateWindow(this, 800, 800, "Sandbox", false);
+
+      XN_ASSERT(1 == 1);
    }  
 
    void Mainloop() 
