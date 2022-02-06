@@ -10,8 +10,16 @@ namespace xentu
       std::function<void()> dispatchCallback;
 
    public:
-      EventListener(std::function<void()> callback);
-      void SetDispatchCallback(std::function<void()> callback);
-      std::function<void()> GetDispatchCallback();
+      EventListener(const std::function<void()> &callback);
+
+      void SetDispatchCallback(const std::function<void()> &callback)
+      {
+         dispatchCallback = callback;
+      }
+
+      std::function<void()> GetDispatchCallback() const
+      {
+         return dispatchCallback;
+      }
    };
 } // namespace xentu
