@@ -15,6 +15,7 @@ namespace xentu
 
    public:
       EventDispatcher(const Event &event);
+      EventDispatcher(const EventCategory &category, const EventType &type);
       void AddListener(const EventListener &listener);
    };
 } // namespace xentu

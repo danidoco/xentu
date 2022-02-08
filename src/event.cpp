@@ -19,5 +19,5 @@ namespace xentu
       this->category = event.category;
       this->type = event.type;
    }
-
+   
 } // namespace xentu
