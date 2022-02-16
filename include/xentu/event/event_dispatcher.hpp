@@ -2,6 +2,9 @@
 
 #include <vector>
 
+#include "xentu/event/event_category.hpp"
+#include "xentu/event/event_type.hpp"
+#include "xentu/event/event_listener.hpp"
 #include "xentu/event/event.hpp"
 #include "xentu/event/event_listener.hpp"
 
@@ -11,11 +14,11 @@ namespace xentu
    {
    private:
       Event event;
-      std::vector<EventListener> listeners;
+      std::vector<std::shared_ptr<EventListener>> listeners;
 
    public:
-      EventDispatcher(const Event &event);
-      EventDispatcher(const EventCategory &category, const EventType &type);
-      void AddListener(const EventListener &listener);
+      EventDispatcher(EventCategory category, EventType type);
+      void Dispatch();
+      void AddListener(std::shared_ptr<EventListener> listener);
    };
 } // namespace xentu

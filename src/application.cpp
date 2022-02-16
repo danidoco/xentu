@@ -1,5 +1,4 @@
 #include "xentu/core/application.hpp"
-#include "xentu/debug/logger.hpp"
 
 namespace xentu
 {
@@ -8,6 +7,14 @@ namespace xentu
       , name(name)
    {
       xentu::Logger::Init(name);
+
+      windowCloseEventListener =
+         std::make_shared<EventListener>([this]() -> void { Terminate(); });
+
+      // FIXME: this line throws segfault
+      // NOTE: i think GetEventDispatcher() returns nullptr
+      //       or t 
+      window->GetEventDispatcher()->AddListener(windowCloseEventListener);
    }
 
    Application::~Application() {}

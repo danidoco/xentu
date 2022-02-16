@@ -14,11 +14,9 @@ namespace xentu
       EventType type;
 
    public:
-      Event(const EventCategory &category, const EventType &type);
+      Event(EventCategory category, EventType type);
       EventCategory GetEventCategory() const { return category; }
       EventType GetEventType() const { return type; }
       bool IsTypeInCategory() const;
-
-      void operator=(const Event &event);
    };
 } // namespace xentu

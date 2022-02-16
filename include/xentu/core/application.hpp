@@ -1,22 +1,28 @@
 #pragma once
 
+#include "xentu/render/window.hpp"
+#include "xentu/event/event_listener.hpp"
+#include "xentu/debug/logger.hpp"
+
 namespace xentu
 {
    class Application
    {
    private:
+      std::shared_ptr<EventListener> windowCloseEventListener;
       bool running;
       const char *name;
+      Window *window;
 
    public:
       Application(const char *name);
       virtual ~Application();
 
-      inline virtual const char *GetApplicationName() const { return name; }
+      virtual const char *GetApplicationName() const final { return name; }
 
       virtual void Mainloop() = 0;
-      virtual void Run() final;
-      virtual void Terminate() final;
+      void Run();
+      void Terminate();
    };
 
    Application *CreateApplication();

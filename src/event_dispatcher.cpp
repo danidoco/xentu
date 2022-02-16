@@ -2,16 +2,20 @@
 
 namespace xentu
 {
-   EventDispatcher::EventDispatcher(const Event &event)
-      : event(event)
+   EventDispatcher::EventDispatcher(EventCategory category, EventType type)
+      : event(category, type)
    {}
 
-   EventDispatcher::EventDispatcher(const EventCategory &category, const EventType &type)
+   void EventDispatcher::Dispatch()
    {
-      event = Event(category, type);
+      for (auto listener : listeners)
+      {
+         std::function<void()> callback = listener->GetDispatchCallback();
+         callback();
+      }
    }
 
-   void EventDispatcher::AddListener(const EventListener &listener)
+   void EventDispatcher::AddListener(std::shared_ptr<EventListener> listener)
    {
       listeners.push_back(listener);
    }

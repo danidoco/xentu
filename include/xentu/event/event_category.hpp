@@ -4,6 +4,6 @@ namespace xentu
 {
    enum class EventCategory
    {
-      WindowEvent,
+      WindowEvent = 0,
    };
 } // namespace xentu

@@ -4,6 +4,6 @@ namespace xentu
 {
    enum class EventType
    {
-      WindowClose,
+      WindowClose = 0,
    };
 } // namespace xentu

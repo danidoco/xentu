@@ -15,7 +15,7 @@ public:
       XN_ERROR("HELLWORLD");
       XN_CRITICAL("CRITICAL!!!");
 
-      window = xentu::CreateWindow(this, 800, 800, "Sandbox", false);
+      window = xentu::CreateWindow(800, 800, "Sandbox", false);
    }  
 
    void Mainloop() 

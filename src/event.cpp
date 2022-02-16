@@ -2,7 +2,7 @@
 
 namespace xentu
 {
-   Event::Event(const EventCategory &category, const EventType &type)
+   Event::Event(EventCategory category, EventType type)
       : category(category)
       , type(type)
    {}
@@ -13,11 +13,4 @@ namespace xentu
       XN_WARN("Event::IstTypeInCategory is not implemented yet");
       return true;
    }
-
-   void Event::operator=(const Event &event)
-   {
-      this->category = event.category;
-      this->type = event.type;
-   }
-   
 } // namespace xentu
