@@ -8,11 +8,8 @@ namespace xentu
    {
       xentu::Logger::Init(name);
 
-      windowCloseEventListener =
-         std::make_shared<EventListener>([this]() -> void { Terminate(); });
-
       // FIXME: this line throws segfault
-      window->GetEventDispatcher()->AddListener(windowCloseEventListener);
+      // window->GetEventDispatcher()->AddListener(windowCloseEventListener);
    }
 
    Application::~Application() {}

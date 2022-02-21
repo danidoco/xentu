@@ -39,6 +39,6 @@ namespace xentu
       void Draw();
    };
 
-   Window *CreateWindow(int width, int height, const char *caption,
-                        bool fullscreen);
+   std::shared_ptr<Window> CreateWindow(int width, int height,
+                                        const char *caption, bool fullscreen);
 } // namespace xentu

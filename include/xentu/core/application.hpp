@@ -9,10 +9,12 @@ namespace xentu
    class Application
    {
    private:
-      std::shared_ptr<EventListener> windowCloseEventListener;
       bool running;
       const char *name;
-      Window *window;
+
+   protected:
+      std::shared_ptr<EventListener> windowCloseEventListener;
+      std::shared_ptr<Window> window;
 
    public:
       Application(const char *name);

@@ -2,20 +2,17 @@
 
 class Sandbox : public xentu::Application
 {
-private:
-   xentu::Window *window;
-
 public:
    Sandbox()
       : Application("Sandbox")
    {
-      XN_TRACE("Hello world");
       XN_INFO("{} running!", GetApplicationName());
-      XN_WARN("Warning from {}", GetApplicationName());
-      XN_ERROR("HELLWORLD");
-      XN_CRITICAL("CRITICAL!!!");
-
+      
       window = xentu::CreateWindow(800, 800, "Sandbox", false);
+      
+      windowCloseEventListener = std::make_shared<xentu::EventListener>([this]() -> void { Terminate(); } );
+
+      window->GetEventDispatcher()->AddListener(windowCloseEventListener);
    }  
 
    void Mainloop() 
@@ -25,7 +22,6 @@ public:
 
    ~Sandbox() 
    {
-      delete window;
    }
 };
 

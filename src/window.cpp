@@ -69,9 +69,9 @@ namespace xentu
       glfwSwapBuffers(window);
    }
 
-   Window *CreateWindow(int width, int height, const char *caption,
-                        bool fullscreen)
+   std::shared_ptr<Window> CreateWindow(int width, int height,
+                                        const char *caption, bool fullscreen)
    {
-      return new Window(width, height, caption, fullscreen);
+      return std::make_shared<Window>(width, height, caption, fullscreen);
    }
 } // namespace xentu
