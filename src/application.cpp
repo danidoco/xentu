@@ -2,25 +2,30 @@
 
 namespace xentu
 {
-   Application::Application(const char *name)
-      : running(true)
-      , name(name)
+   Application::Application(const char *name, int windowWidth, int windowHeight,
+                            bool fullscreen)
+      : name(name)
+      , running(true)
    {
       xentu::Logger::Init(name);
 
-      // FIXME: this line throws segfault
-      // window->GetEventDispatcher()->AddListener(windowCloseEventListener);
+      window =
+         xentu::CreateWindow(windowWidth, windowHeight, this->name, fullscreen);
+
+      windowCloseEventListener = std::make_shared<xentu::EventListener>(
+         [this]() -> void { Terminate(); });
+      window->GetEventDispatcher()->AddListener(windowCloseEventListener);
    }
 
    Application::~Application() {}
 
    void Application::Run()
    {
-      while (this->running)
+      while (running)
       {
          this->Mainloop();
       }
    }
 
-   void Application::Terminate() { this->running = false; }
+   void Application::Terminate() { running = false; }
 } // namespace xentu

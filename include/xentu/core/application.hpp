@@ -9,18 +9,19 @@ namespace xentu
    class Application
    {
    private:
-      bool running;
       const char *name;
 
-   protected:
+      bool running;
       std::shared_ptr<EventListener> windowCloseEventListener;
       std::shared_ptr<Window> window;
 
    public:
-      Application(const char *name);
+      Application(const char *name, int windowWidth, int windowHeight,
+                  bool fullscreen);
       virtual ~Application();
 
-      virtual const char *GetApplicationName() const final { return name; }
+      const char *GetApplicationName() const { return name; }
+      std::shared_ptr<Window> GetWindow() const { return window; }
 
       virtual void Mainloop() = 0;
       void Run();

@@ -2,17 +2,16 @@
 
 class Sandbox : public xentu::Application
 {
+private:
+   std::shared_ptr<xentu::Window> window;
+
 public:
    Sandbox()
-      : Application("Sandbox")
+      : Application("Sandbox", 800, 800, true)
    {
       XN_INFO("{} running!", GetApplicationName());
-      
-      window = xentu::CreateWindow(800, 800, "Sandbox", false);
-      
-      windowCloseEventListener = std::make_shared<xentu::EventListener>([this]() -> void { Terminate(); } );
 
-      window->GetEventDispatcher()->AddListener(windowCloseEventListener);
+      window = GetWindow();
    }  
 
    void Mainloop() 
@@ -21,8 +20,7 @@ public:
    }
 
    ~Sandbox() 
-   {
-   }
+   {}
 };
 
 xentu::Application *xentu::CreateApplication()
