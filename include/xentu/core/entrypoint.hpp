@@ -8,9 +8,9 @@ extern xentu::Application *xentu::CreateApplication();
 int main()
 {
    auto app = xentu::CreateApplication();
+
    app->Run();
 
    delete app;
-
    return 0;
 }

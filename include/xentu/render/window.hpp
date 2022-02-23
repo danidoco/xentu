@@ -16,13 +16,6 @@ namespace xentu
 {
    class Window
    {
-   private:
-      int width, height;
-      const char *caption;
-      bool fullscreen;
-      GLFWwindow *window;
-      std::shared_ptr<EventDispatcher> windowCloseEventDispatcher;
-
    public:
       Window(int width, int height, const char *caption, bool fullscreen);
       ~Window();
@@ -37,6 +30,13 @@ namespace xentu
       bool IsFullscreen() const { return fullscreen; }
 
       void Draw();
+
+   private:
+      int width, height;
+      const char *caption;
+      bool fullscreen;
+      GLFWwindow *window;
+      std::shared_ptr<EventDispatcher> windowCloseEventDispatcher;
    };
 
    std::shared_ptr<Window> CreateWindow(int width, int height,

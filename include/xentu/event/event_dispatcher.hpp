@@ -12,13 +12,13 @@ namespace xentu
 {
    class EventDispatcher
    {
-   private:
-      Event event;
-      std::vector<std::shared_ptr<EventListener>> listeners;
-
    public:
       EventDispatcher(EventCategory category, EventType type);
       void Dispatch();
       void AddListener(std::shared_ptr<EventListener> listener);
+
+   private:
+      Event event;
+      std::vector<std::shared_ptr<EventListener>> listeners;
    };
 } // namespace xentu

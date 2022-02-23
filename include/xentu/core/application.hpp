@@ -8,13 +8,6 @@ namespace xentu
 {
    class Application
    {
-   private:
-      const char *name;
-
-      bool running;
-      std::shared_ptr<EventListener> windowCloseEventListener;
-      std::shared_ptr<Window> window;
-
    public:
       Application(const char *name, int windowWidth, int windowHeight,
                   bool fullscreen);
@@ -26,6 +19,12 @@ namespace xentu
       virtual void Mainloop() = 0;
       void Run();
       void Terminate();
+
+   private:
+      const char *name;
+      bool running;
+      std::shared_ptr<EventListener> windowCloseEventListener;
+      std::shared_ptr<Window> window;
    };
 
    Application *CreateApplication();

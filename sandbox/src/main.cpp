@@ -2,14 +2,12 @@
 
 class Sandbox : public xentu::Application
 {
-private:
-   std::shared_ptr<xentu::Window> window;
-
 public:
    Sandbox()
-      : Application("Sandbox", 800, 800, true)
+      : Application("Sandbox", 1920, 1080, true)
    {
       XN_INFO("{} running!", GetApplicationName());
+      XN_DEBUGBREAK();
 
       window = GetWindow();
    }  
@@ -21,6 +19,9 @@ public:
 
    ~Sandbox() 
    {}
+
+private:
+   std::shared_ptr<xentu::Window> window;
 };
 
 xentu::Application *xentu::CreateApplication()

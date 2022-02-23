@@ -22,7 +22,7 @@
       XN_TERMINATE()
 #elif defined(XN_RELEASE)
    #define XN_ENGINE_TERMINATE()                                               \
-      XN_ENGINE_CRITICAL("terminated abnormally");                             \
+      XN_ENGINE_CRITICAL("application terminated abnormally by engine");       \
       exit(1)
 
    #define XN_ENGINE_DEBUGBREAK()

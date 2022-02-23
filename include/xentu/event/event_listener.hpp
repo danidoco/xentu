@@ -6,9 +6,6 @@ namespace xentu
 {
    class EventListener
    {
-   private:
-      std::function<void()> dispatchCallback;
-
    public:
       EventListener(const std::function<void()> &callback);
 
@@ -21,5 +18,8 @@ namespace xentu
       {
          return dispatchCallback;
       }
+
+   private:
+      std::function<void()> dispatchCallback;
    };
 } // namespace xentu

@@ -9,14 +9,14 @@ namespace xentu
 {
    class Event
    {
-   private:
-      EventCategory category;
-      EventType type;
-
    public:
       Event(EventCategory category, EventType type);
       EventCategory GetEventCategory() const { return category; }
       EventType GetEventType() const { return type; }
       bool IsTypeInCategory() const;
+
+   private:
+      EventCategory category;
+      EventType type;
    };
 } // namespace xentu
