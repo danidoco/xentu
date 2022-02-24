@@ -1,9 +1,13 @@
 #pragma once
 
+#include <memory>
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "xentu/debug/logger.hpp"
-#include "xentu/core/application.hpp"
+#include "xentu/event/event_dispatcher.hpp"
+#include "xentu/event/event_category.hpp"
+#include "xentu/event/event_type.hpp"
+#include "xentu/event/event_listener.hpp"
 
 #undef CreateWindow
 #undef CreateWindowA
@@ -12,32 +16,29 @@ namespace xentu
 {
    class Window
    {
-   private:
-      /*
-      Application pointer will be temporarily used to control the application
-      with window events. This method should be replaced by an proper event
-      system asap.
-      */
-      Application *application;
+   public:
+      Window(int width, int height, const char *caption, bool fullscreen);
+      ~Window();
 
+      std::shared_ptr<EventDispatcher> GetEventDispatcher() const
+      {
+         return windowCloseEventDispatcher;
+      }
+      int GetWidth() const { return width; }
+      int GetHeight() const { return height; }
+      const char *GetCaption() const { return caption; }
+      bool IsFullscreen() const { return fullscreen; }
+
+      void Draw();
+
+   private:
       int width, height;
       const char *caption;
       bool fullscreen;
       GLFWwindow *window;
-
-   public:
-      Window(Application *application, int width, int height,
-             const char *caption, bool fullscreen);
-      ~Window();
-
-      inline int GetWidth() { return width; }
-      inline int GetHeight() { return height; }
-      inline const char *GetCaption() { return caption; }
-      inline bool IsFullscreen() { return fullscreen; }
-
-      void Draw();
+      std::shared_ptr<EventDispatcher> windowCloseEventDispatcher;
    };
 
-   Window *CreateWindow(Application *application, int width, int height,
-                        const char *caption, bool fullscreen);
+   std::shared_ptr<Window> CreateWindow(int width, int height,
+                                        const char *caption, bool fullscreen);
 } // namespace xentu

@@ -2,20 +2,18 @@
 
 class Sandbox : public xentu::Application
 {
-private:
-   xentu::Window *window;
-
 public:
    Sandbox()
-      : Application("Sandbox")
+      : Application("Sandbox", 1920, 1080, true)
    {
-      XN_TRACE("Hello world");
       XN_INFO("{} running!", GetApplicationName());
-      XN_WARN("Warning from {}", GetApplicationName());
-      XN_ERROR("HELLWORLD");
-      XN_CRITICAL("CRITICAL!!!");
+      XN_TRACE("it's a trace");
+      XN_INFO("it's an info");
+      XN_WARN("it's a warning");
+      XN_ERROR("it's an error");
+      XN_CRITICAL("it's a critical error");
 
-      window = xentu::CreateWindow(this, 800, 800, "Sandbox", false);
+      window = GetWindow();
    }  
 
    void Mainloop() 
@@ -24,9 +22,10 @@ public:
    }
 
    ~Sandbox() 
-   {
-      delete window;
-   }
+   {}
+
+private:
+   std::shared_ptr<xentu::Window> window;
 };
 
 xentu::Application *xentu::CreateApplication()

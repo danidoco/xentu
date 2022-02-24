@@ -2,17 +2,18 @@
 
 namespace xentu
 {
-   Window::Window(Application *application, int width, int height,
-                  const char *caption, bool fullscreen)
-      : application(application)
-      , width(width)
+   Window::Window(int width, int height, const char *caption, bool fullscreen)
+      : width(width)
       , height(height)
       , caption(caption)
       , fullscreen(fullscreen)
    {
+      windowCloseEventDispatcher = std::make_shared<EventDispatcher>(
+         EventCategory::WindowEvent, EventType::WindowClose);
+
       if (!glfwInit())
       {
-         XN_ENGINE_CRITICAL("Failed to initialize GLFW")
+         XN_ENGINE_CRITICAL("Failed to initialize GLFW");
       }
 
       glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -58,7 +59,7 @@ namespace xentu
    {
       if (glfwWindowShouldClose(window))
       {
-         application->Terminate();
+         windowCloseEventDispatcher->Dispatch();
       }
 
       glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -68,9 +69,9 @@ namespace xentu
       glfwSwapBuffers(window);
    }
 
-   Window *CreateWindow(Application *application, int width, int height,
-                        const char *caption, bool fullscreen)
+   std::shared_ptr<Window> CreateWindow(int width, int height,
+                                        const char *caption, bool fullscreen)
    {
-      return new Window(application, width, height, caption, fullscreen);
+      return std::make_shared<Window>(width, height, caption, fullscreen);
    }
 } // namespace xentu

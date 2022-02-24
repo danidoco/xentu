@@ -23,3 +23,5 @@ glfw3Config.cmake
 glfw3ConfigVersion.cmake
 vendor/glfw/docs/**
 build/
+Testing/
+CTestTestfile.cmake
