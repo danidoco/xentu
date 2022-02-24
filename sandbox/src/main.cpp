@@ -7,7 +7,11 @@ public:
       : Application("Sandbox", 1920, 1080, true)
    {
       XN_INFO("{} running!", GetApplicationName());
-      XN_DEBUGBREAK();
+      XN_TRACE("it's a trace");
+      XN_INFO("it's an info");
+      XN_WARN("it's a warning");
+      XN_ERROR("it's an error");
+      XN_CRITICAL("it's a critical error");
 
       window = GetWindow();
    }  

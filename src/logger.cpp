@@ -7,7 +7,7 @@ namespace xentu
 
    void Logger::Init(const char *applicationName)
    {
-      spdlog::set_pattern("%Y-%m-%d %T [%n] %^%8l | %v%$");
+      spdlog::set_pattern("%Y-%m-%d %T [thread %t] [%-10n] %^%8l | %v%$");
 
       engineLogger = spdlog::stdout_color_mt("xentu");
       engineLogger->set_level(spdlog::level::trace);
